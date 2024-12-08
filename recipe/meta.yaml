@@ -11,7 +11,7 @@ source:
   sha256: 86e1e57962f7f12942e8439af8566a941153c2e214c5e0992e24698f536b71cd
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - astropy-package-template-example = packagename.example_mod:main
   script: {{ PYTHON }} -m pip install . -vv
@@ -23,7 +23,7 @@ requirements:
     - python >=3.6
     - setuptools-scm
   run:
-    - astropy
+    - astropy-base
     - extension-helpers >=0.1
     - matplotlib-base
     - numpy >=1.19.1
