@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jazz-hands-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/jazz-hands-{{ version }}.tar.gz
   sha256: 86e1e57962f7f12942e8439af8566a941153c2e214c5e0992e24698f536b71cd
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - astropy-package-template-example = packagename.example_mod:main
   script: {{ PYTHON }} -m pip install . -vv
@@ -20,14 +20,14 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools-scm
   run:
     - astropy
     - extension-helpers >=0.1
     - matplotlib-base
     - numpy >=1.19.1
-    - python >=3.6
+    - python >={{ python_min }}
     - scipy >=1.5.2
     - tqdm
 
@@ -40,6 +40,7 @@ test:
   requires:
     - pytest
     - numpy
+    - python {{ python_min }}
 
 about:
   home: https://jazzhands.readthedocs.io/en/latest/index.html
